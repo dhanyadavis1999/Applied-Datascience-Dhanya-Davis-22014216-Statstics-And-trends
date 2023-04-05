@@ -62,7 +62,7 @@ def gdp(filename):
     """
     df_gdp=pd.read_csv(filename,skiprows=(4))
     a=df_gdp['Country Name']
-    df_gdp=df_gdp.iloc[[10,20,40,50,60],[54,55,56,57,58]]
+    df_gdp=df_gdp.iloc[[20,25,30,40,45],[40,45,50,55,60]]
     print(df_gdp)
     df_gdp = df_gdp.fillna(0)
     df_gdp.insert(loc=0,column='Country Name',value=a)
@@ -119,7 +119,7 @@ plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.savefig("greenhouse.png",bbox_inches="tight")
 plt.show()
 
-def forest(filename):
+def forestarea(filename):
     """
     Created a function forest to manipulate the data using pandas dataframes which takes a csv file as argument, 
     reads a dataframe in Worldbank format which is Forest area (% of land area) and returns two dataframes: 
@@ -144,7 +144,7 @@ def forest(filename):
     df_forestt=df_forest.set_index('Country Name').T
     print(df_forest)
     return df_forest,df_forestt
-a,b=forest("C:/Users/sreel/OneDrive/Desktop/Dhanya/API_AG.LND.FRST.ZS_DS2_en_csv_v2_5358376.csv")
+a,b=forestarea("C:/Users/sreel/OneDrive/Desktop/Dhanya/API_AG.LND.FRST.ZS_DS2_en_csv_v2_5358376.csv")
 print(a.describe())
 plt.figure(figsize=(10,7),dpi=150) 
 a.plot(kind='bar',x='Country Name')
